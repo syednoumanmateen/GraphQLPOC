@@ -1,0 +1,16 @@
+{
+  "name": "mesh-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "mesh dev",
+    "build": "mesh build",
+    "serve": "mesh start"
+  },
+  "dependencies": {
+    "@graphql-mesh/cli": "0.100.52",
+    "@graphql-mesh/runtime": "0.106.38",
+    "@graphql-mesh/graphql": "0.104.39",
+    "graphql": "^16.9.0"
+  }
+}

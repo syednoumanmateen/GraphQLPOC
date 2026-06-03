@@ -1,0 +1,14 @@
+sources:
+  - name: todos
+    handler:
+      graphql:
+        endpoint: http://localhost:4002/
+        source: http://localhost:4002/schema.graphql
+        subgraph: true
+
+serve:
+  port: 4010
+  hostname: 0.0.0.0
+  playground: true
+  cors:
+    origin: '*'

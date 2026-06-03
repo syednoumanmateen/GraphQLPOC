@@ -1,0 +1,15 @@
+{
+  "name": "graphqlmesh-todo-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Federated Todo subgraph served via GraphQL Mesh. Same SDL is Apollo Router-compatible.",
+  "workspaces": [
+    "subgraphs/*",
+    "mesh"
+  ],
+  "scripts": {
+    "start:todos": "npm --workspace subgraphs/todos run start",
+    "start:mesh": "npm --workspace mesh run start",
+    "start:frontend": "node frontend/server.js"
+  }
+}

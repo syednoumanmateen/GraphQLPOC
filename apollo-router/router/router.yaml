@@ -1,0 +1,14 @@
+supergraph:
+  listen: 127.0.0.1:4000
+  path: /graph
+  introspection: true
+sandbox:
+  enabled: true
+homepage:
+  enabled: false
+cors:
+  policies:
+    - origins:
+        - http://localhost:5173
+        - http://127.0.0.1:5173
+        - https://studio.apollographql.com

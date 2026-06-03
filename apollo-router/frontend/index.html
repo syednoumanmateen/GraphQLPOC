@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apollo Router Todos</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="toolbar">
+        <div>
+          <p class="eyebrow">Apollo Router</p>
+          <h1>Todo App</h1>
+        </div>
+        <button id="refresh" type="button">Refresh</button>
+      </section>
+
+      <form class="todo-form" id="todo-form">
+        <input id="title" name="title" type="text" placeholder="Add a todo" required />
+        <input id="description" name="description" type="text" placeholder="Description" />
+        <select id="priority" name="priority">
+          <option value="LOW">Low</option>
+          <option value="MEDIUM" selected>Medium</option>
+          <option value="HIGH">High</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+
+      <section class="status" id="status">Loading todos...</section>
+      <section class="grid" id="todos"></section>
+    </main>
+
+    <script src="./src/app.js"></script>
+  </body>
+</html>

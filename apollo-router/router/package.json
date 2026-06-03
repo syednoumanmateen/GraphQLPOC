@@ -1,0 +1,14 @@
+{
+  "name": "@apollo-router-todo-app/router",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "apollo-rover": "rover --skip-update-check --output supergraph.graphql supergraph compose --config supergraph.yaml --elv2-license accept",
+    "apollo-router": "rover dev --supergraph-config supergraph.yaml --router-config router.yaml --elv2-license accept --skip-update-check",
+    "dev": "npm run apollo-rover && npm run apollo-router"
+  },
+  "devDependencies": {
+    "@apollo/rover": "^0.38.1"
+  }
+}

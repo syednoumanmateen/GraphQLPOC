@@ -1,0 +1,32 @@
+extend schema
+  @link(url: "https://specs.apollo.dev/federation/v2.3", import: ["@key"])
+
+type Todo @key(fields: "id") {
+  id: ID!
+  title: String!
+  completed: Boolean!
+  userId: ID!
+}
+
+type Query {
+  todo(id: ID!): Todo
+  todos: [Todo!]!
+  todosByUser(userId: ID!): [Todo!]!
+}
+
+input NewTodoInput {
+  title: String!
+  userId: ID!
+}
+
+input UpdateTodoInput {
+  id: ID!
+  title: String
+  completed: Boolean
+}
+
+type Mutation {
+  addTodo(input: NewTodoInput!): Todo!
+  updateTodo(input: UpdateTodoInput!): Todo!
+  deleteTodo(id: ID!): Boolean!
+}

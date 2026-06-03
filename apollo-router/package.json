@@ -1,0 +1,20 @@
+{
+  "name": "apollo-router-todo-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "workspaces": [
+    "subgraphs/todos",
+    "router"
+  ],
+  "scripts": {
+    "dev:subgraph": "npm run dev --workspace @apollo-router-todo-app/todos-subgraph",
+    "apollo-rover": "npm run apollo-rover --workspace @apollo-router-todo-app/router",
+    "apollo-router": "npm run apollo-router --workspace @apollo-router-todo-app/router",
+    "dev:router": "npm run apollo-rover && npm run apollo-router",
+    "dev:frontend": "node frontend/server.js",
+    "compose": "npm run apollo-rover",
+    "compose:ci": "npm run apollo-rover",
+    "test": "node --test"
+  }
+}
