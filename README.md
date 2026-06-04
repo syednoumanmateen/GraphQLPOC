@@ -104,15 +104,15 @@ Todo subgraph -> Apollo Rover supergraph compose -> Apollo Router gateway
 
 ### Apollo Router Packages
 
-| Location | Package | Purpose |
-| --- | --- | --- |
-| `apollo-router/router` | `@apollo/rover` | Compose supergraph and run Apollo Router tooling. |
-| `apollo-router/subgraphs/todos` | `@apollo/server` | Run the Todo GraphQL subgraph. |
-| `apollo-router/subgraphs/todos` | `@apollo/subgraph` | Build the federated subgraph schema. |
-| `apollo-router/subgraphs/todos` | `@as-integrations/express5` | Mount Apollo Server on Express 5. |
-| `apollo-router/subgraphs/todos` | `express` | Serve GraphQL POST `/` and GET `/schema.graphql`. |
-| `apollo-router/subgraphs/todos` | `cors` | Allow Apollo Studio and browser requests. |
-| `apollo-router/subgraphs/todos` | `graphql` | GraphQL runtime. |
+| Location                        | Package                     | Purpose                                           |
+| ------------------------------- | --------------------------- | ------------------------------------------------- |
+| `apollo-router/router`          | `@apollo/rover`             | Compose supergraph and run Apollo Router tooling. |
+| `apollo-router/subgraphs/todos` | `@apollo/server`            | Run the Todo GraphQL subgraph.                    |
+| `apollo-router/subgraphs/todos` | `@apollo/subgraph`          | Build the federated subgraph schema.              |
+| `apollo-router/subgraphs/todos` | `@as-integrations/express5` | Mount Apollo Server on Express 5.                 |
+| `apollo-router/subgraphs/todos` | `express`                   | Serve GraphQL POST `/` and GET `/schema.graphql`. |
+| `apollo-router/subgraphs/todos` | `cors`                      | Allow Apollo Studio and browser requests.         |
+| `apollo-router/subgraphs/todos` | `graphql`                   | GraphQL runtime.                                  |
 
 ### Apollo Router Install
 
@@ -205,11 +205,13 @@ Create:
 
 ```graphql
 mutation {
-  createTodo(input: {
-    title: "Apollo todo"
-    description: "Created from Apollo Studio"
-    priority: HIGH
-  }) {
+  createTodo(
+    input: {
+      title: "Apollo todo"
+      description: "Created from Apollo Studio"
+      priority: HIGH
+    }
+  ) {
     id
     title
     completed
@@ -242,18 +244,18 @@ GraphQL Mesh does not use Apollo `supergraph.graphql`.
 
 ### GraphQL Mesh Packages
 
-| Location | Package | Purpose |
-| --- | --- | --- |
-| `graphqlmesh/mesh` | `@graphql-mesh/cli` | Run the Mesh gateway. |
-| `graphqlmesh/mesh` | `@graphql-mesh/runtime` | Mesh runtime. |
-| `graphqlmesh/mesh` | `@graphql-mesh/graphql` | Read a GraphQL source. |
-| `graphqlmesh/mesh` | `graphql` | GraphQL runtime for Mesh. |
-| `graphqlmesh/subgraphs/todos` | `@apollo/server` | Run the Todo GraphQL subgraph. |
-| `graphqlmesh/subgraphs/todos` | `@apollo/subgraph` | Build the federated subgraph schema. |
-| `graphqlmesh/subgraphs/todos` | `graphql-tag` | Parse SDL into type definitions. |
-| `graphqlmesh/subgraphs/todos` | `express` | Serve GraphQL POST `/` and GET `/schema.graphql`. |
-| `graphqlmesh/subgraphs/todos` | `cors` | Allow Mesh and browser requests. |
-| `graphqlmesh/subgraphs/todos` | `graphql` | GraphQL runtime. |
+| Location                      | Package                 | Purpose                                           |
+| ----------------------------- | ----------------------- | ------------------------------------------------- |
+| `graphqlmesh/mesh`            | `@graphql-mesh/cli`     | Run the Mesh gateway.                             |
+| `graphqlmesh/mesh`            | `@graphql-mesh/runtime` | Mesh runtime.                                     |
+| `graphqlmesh/mesh`            | `@graphql-mesh/graphql` | Read a GraphQL source.                            |
+| `graphqlmesh/mesh`            | `graphql`               | GraphQL runtime for Mesh.                         |
+| `graphqlmesh/subgraphs/todos` | `@apollo/server`        | Run the Todo GraphQL subgraph.                    |
+| `graphqlmesh/subgraphs/todos` | `@apollo/subgraph`      | Build the federated subgraph schema.              |
+| `graphqlmesh/subgraphs/todos` | `graphql-tag`           | Parse SDL into type definitions.                  |
+| `graphqlmesh/subgraphs/todos` | `express`               | Serve GraphQL POST `/` and GET `/schema.graphql`. |
+| `graphqlmesh/subgraphs/todos` | `cors`                  | Allow Mesh and browser requests.                  |
+| `graphqlmesh/subgraphs/todos` | `graphql`               | GraphQL runtime.                                  |
 
 ### GraphQL Mesh Install
 
@@ -331,10 +333,7 @@ Create:
 
 ```graphql
 mutation {
-  addTodo(input: {
-    title: "Mesh todo"
-    userId: "1"
-  }) {
+  addTodo(input: { title: "Mesh todo", userId: "1" }) {
     id
     title
     completed
@@ -355,3 +354,15 @@ graphqlmesh/README.md
 - A subgraph root URL can show `Cannot GET /` in a browser. That is normal because GraphQL requests use POST.
 - Use `/schema.graphql` in a browser to view subgraph SDL.
 - Keep Apollo Router and GraphQL Mesh commands separate.
+
+## syed preference
+
+t1: cd apollo-router; npm i
+t1: cd apollo-router; npm run dev:subgraph
+t2: cd apollo-router; npm run apollo-rover; npm run apollo-router
+t3: cd apollo-router; npm run dev:frontend
+
+t4: cd graphqlmesh; npm i
+t4: cd graphqlmesh; npm run start:todos
+t5: cd graphqlmesh; npm run start:mesh
+t6: cd graphqlmesh; npm run start:frontend
